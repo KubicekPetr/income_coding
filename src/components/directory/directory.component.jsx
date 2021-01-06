@@ -11,10 +11,12 @@ class Directory extends Component {
                 {
                     id: 1,
                     title: 'T-shirts',
+                    linkUrl: 'tshirts',
                 },
                 {
                     id: 2,
                     title: 'Hoodies',
+                    linkUrl: 'hoodies'
                 },
             ],
         }
@@ -23,7 +25,7 @@ class Directory extends Component {
     render() {
         return(
             <div>
-                {this.state.sections.map(({id, title}) => <MenuItem title={title} key={id} />)}
+                {this.state.sections.map(({id, title, linkUrl}) => <MenuItem title={title} linkUrl={linkUrl} key={id} />)}
             </div>
         );
     }
