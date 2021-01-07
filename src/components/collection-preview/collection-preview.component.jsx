@@ -1,15 +1,17 @@
 import React from 'react';
 
-const CollectionPreview = ({title, items}) => (
+import CollectionItem from '../collection-item/collection-item.component';
+
+const CollectionPreview = ({ title, items }) => (
     <div>
         <h1>Title</h1>
-            <div>
-                {items
+        <div>
+            {items
                 .filter((item, index) => index < 4)
-                .map(item => (
-                    <div key={item.id}>{item.name}</div>
+                .map(({ id, ...itemProps }) => (
+                    <CollectionItem key={id} {...itemProps} />
                 ))}
-            </div>
+        </div>
     </div>
 );
 
