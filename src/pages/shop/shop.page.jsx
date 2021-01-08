@@ -4,8 +4,8 @@ import CollectionPreview from '../../components/collection-preview/collection-pr
 import DATA from './shop.data';
 
 class Shop extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
             collections: DATA,
