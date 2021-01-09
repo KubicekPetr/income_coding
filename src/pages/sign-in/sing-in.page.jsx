@@ -3,6 +3,8 @@ import React from 'react';
 import Input from '../../components/input/input.component';
 import Button from '../../components/button/button.component';
 
+import { signInWithGoogle } from '../../firebase/firebase.utils'; 
+
 class SignIn extends React.Component {
     constructor() {
         super();
@@ -52,7 +54,12 @@ class SignIn extends React.Component {
                         type="password"
                         value={this.state.password}
                         required />
-                    <Button>Submit</Button>
+                    <Button>Sign in</Button>
+                    <p>or</p>
+                    <Button 
+                    onClick={signInWithGoogle}
+                    type="button"
+                    >Sign In with Google</Button>
                 </form>
             </div>
         );
