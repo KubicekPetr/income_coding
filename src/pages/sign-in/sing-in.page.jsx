@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Input from '../../components/input/input.component';
+
 class SignIn extends React.Component {
     constructor() {
         super();
@@ -35,19 +37,19 @@ class SignIn extends React.Component {
                 <span>Sign in with your email and password</span>
 
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="email">Email</label>
-                    <input
+                    <Input
+                        handleChange={this.handleChange}
+                        label="email"
                         name="email"
                         type="email"
                         value={this.state.email}
-                        onChange={this.handleChange}
                         required />
-                    <label htmlFor="password">Password</label>
-                    <input
+                    <Input
+                        handleChange={this.handleChange}
+                        label="password"
                         name="password"
                         type="password"
                         value={this.state.password}
-                        onChange={this.handleChange}
                         required />
                     {/*https://css-tricks.com/use-button-element/*/}
                     {/*Use rather buttons than inputs*/}
