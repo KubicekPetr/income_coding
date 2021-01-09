@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Input from '../../components/input/input.component';
+import Button from '../../components/button/button.component';
 
 class SignIn extends React.Component {
     constructor() {
@@ -51,9 +52,7 @@ class SignIn extends React.Component {
                         type="password"
                         value={this.state.password}
                         required />
-                    {/*https://css-tricks.com/use-button-element/*/}
-                    {/*Use rather buttons than inputs*/}
-                    <button>Submit</button>
+                    <Button>Submit</Button>
                 </form>
             </div>
         );
