@@ -9,18 +9,42 @@ import SignUp from './pages/sign-up/sign-up.page';
 
 import Header from './components/header/header.component';
 
-function App() {
-  return (
-    <div>
-      <Header />
-      <Switch>
-        <Route exact path='/' component={HomePage} />
-        <Route path='/shop' component={ShopPage} />
-        <Route path="/sign-in" component={SignIn} />
-        <Route path="/sign-up" component={SignUp} />
-      </Switch>
-    </div>
-  );
+import { auth } from './firebase/firebase.utils';
+
+class App extends React.Component {
+  unsubscribeFromAuth = null;
+
+  constructor() {
+    super();
+
+    this.state = {
+      currentUser: null,
+    }
+  }
+
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(currentUser => {
+      this.setState({currentUser});
+    });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <Switch>
+          <Route exact path='/' component={HomePage} />
+          <Route path='/shop' component={ShopPage} />
+          <Route path="/sign-in" component={SignIn} />
+          <Route path="/sign-up" component={SignUp} />
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;
