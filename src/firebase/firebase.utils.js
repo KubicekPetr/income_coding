@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey: "AIzaSyALFzS90tgkhGjQsCNPWe7OCCvnSD3NHJQ",
@@ -12,6 +13,13 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+const firestore = firebase.firestore();
+
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+    if (!userAuth) return;
+    
+    console.log(firestore.doc('users/345lkjdfs'));
+}
 
 export const auth = firebase.auth();
 
