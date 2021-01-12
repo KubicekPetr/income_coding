@@ -19,7 +19,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     if (!userAuth) return;
 
     const userRef = firestore.doc(`users/${userAuth.uid}`);
-    const snaphost = await userRef.get();
+    const snaphost = await userRef.get().catch(e => console.log('Missing or insufficient permissions', e));
 
     if (!snaphost.exists) {
         const { displayName, email } = userAuth;
