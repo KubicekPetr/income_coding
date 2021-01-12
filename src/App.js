@@ -9,7 +9,7 @@ import SignUp from './pages/sign-up/sign-up.page';
 
 import Header from './components/header/header.component';
 
-import { auth } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -23,7 +23,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(currentUser => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async currentUser => {
+      createUserProfileDocument(currentUser);
+
       this.setState({currentUser});
     });
   }
