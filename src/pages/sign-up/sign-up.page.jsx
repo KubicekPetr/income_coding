@@ -2,6 +2,7 @@ import React from 'react';
 
 import Input from '../../components/input/input.component';
 import Button from '../../components/button/button.component';
+import Warning from '../../components/warning/warning.component';
 
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 
@@ -14,6 +15,10 @@ class SignUp extends React.Component {
             email: '',
             password: '',
             confirmPassword: '',
+            warning: {
+                active: false,
+                message: '',
+            },
         }
     }
 
@@ -23,7 +28,14 @@ class SignUp extends React.Component {
         const { displayName, email, password, confirmPassword } = this.state;
 
         if (password !== confirmPassword) {
-            alert("Passwords don't match!");
+            this.setState({
+                warning: {
+                    active: true,
+                    message: "Passwords didn't match.",
+                },
+                password: '',
+                confirmPassword: '',
+            });
             return;
         }
 
@@ -33,6 +45,12 @@ class SignUp extends React.Component {
             await createUserProfileDocument(user, { displayName });
         } catch (e) {
             console.error(e);
+            this.setState({
+                warning: {
+                    active: true,
+                    message: e.message,
+                },
+            });
         }
 
         // clear form after submit
@@ -87,6 +105,9 @@ class SignUp extends React.Component {
                         value={this.state.confirmPassword}
                         required />
                     <Button>Sign up</Button>
+                    {
+                        this.state.warning.active && <Warning message={this.state.warning.message} />
+                    }
                 </form>
             </div>
         );
