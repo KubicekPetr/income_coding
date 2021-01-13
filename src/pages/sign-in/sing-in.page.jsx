@@ -2,6 +2,7 @@ import React from 'react';
 
 import Input from '../../components/input/input.component';
 import Button from '../../components/button/button.component';
+import Warning from '../../components/warning/warning.component';
 
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
@@ -12,6 +13,10 @@ class SignIn extends React.Component {
         this.state = {
             email: '',
             password: '',
+            warning: {
+                active: false,
+                message: '',
+            },
         }
     }
 
@@ -24,6 +29,19 @@ class SignIn extends React.Component {
             await auth.signInWithEmailAndPassword(email, password);
         } catch(e) {
             console.error(e);
+            e.code === 'auth/user-not-found' ?
+            this.setState({
+                warning: {
+                    active: true,
+                    message: 'The password is invalid or the user does not have a password.',
+                },
+            }) :
+            this.setState({
+                warning: {
+                    active: true,
+                    message: e.message,
+                },
+            });
         }
 
         // clear inputs after submit
@@ -63,6 +81,9 @@ class SignIn extends React.Component {
                         value={this.state.password}
                         required />
                     <Button>Sign in</Button>
+                    {
+                        this.state.warning.active && <Warning message={this.state.warning.message} />
+                    }
                     <p>or</p>
                     <Button
                         onClick={signInWithGoogle}
