@@ -3,7 +3,7 @@ import React from 'react';
 import Input from '../../components/input/input.component';
 import Button from '../../components/button/button.component';
 
-import { signInWithGoogle } from '../../firebase/firebase.utils'; 
+import { signInWithGoogle } from '../../firebase/firebase.utils';
 
 class SignIn extends React.Component {
     constructor() {
@@ -56,9 +56,9 @@ class SignIn extends React.Component {
                         required />
                     <Button>Sign in</Button>
                     <p>or</p>
-                    <Button 
-                    onClick={signInWithGoogle}
-                    type="button"
+                    <Button
+                        onClick={signInWithGoogle}
+                        type="button"
                     >Sign In with Google</Button>
                 </form>
             </div>
