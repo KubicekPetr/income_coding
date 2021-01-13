@@ -4,7 +4,7 @@ import Input from '../../components/input/input.component';
 import Button from '../../components/button/button.component';
 import Warning from '../../components/warning/warning.component';
 
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+import { auth, createUserProfileDocument, signInWithGoogle } from '../../firebase/firebase.utils';
 
 class SignUp extends React.Component {
     constructor() {
@@ -108,6 +108,11 @@ class SignUp extends React.Component {
                     {
                         this.state.warning.active && <Warning message={this.state.warning.message} />
                     }
+                    <p>or</p>
+                    <Button
+                        onClick={signInWithGoogle}
+                        type="button"
+                    >Sign Up with Google</Button>
                 </form>
             </div>
         );
