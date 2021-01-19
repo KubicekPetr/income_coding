@@ -1,10 +1,23 @@
 import React from 'react';
 
-const CollectionItem = ({name, price}) => (
-    <div>
-        <span>{name}</span>
-        <span>- {price}$</span>
-    </div>
-);
+import { connect } from 'react-redux';
+import { addItem } from '../../redux/cart/cart.actions';
 
-export default CollectionItem;
+import Button from '../button/button.component';
+
+const CollectionItem = ({ item, addItem }) => {
+    const { name, price } = item;
+    return (
+        <div>
+            <span>{name}</span>
+            <span>- {price}$</span>
+            <Button onClick={() => addItem(item)}>Add to cart</Button>
+        </div>
+    );
+};
+
+const mapDispatchToProps = dispatch => ({
+    addItem: item => dispatch(addItem(item))
+});
+
+export default connect(null, mapDispatchToProps)(CollectionItem);
