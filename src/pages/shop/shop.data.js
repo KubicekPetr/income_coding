@@ -20,12 +20,12 @@ const DATA = [
         title: 'Hoodies',
         items: [
             {
-                id: 1,
+                id: 3,
                 name: 'Hoodie 1',
                 price: 30,
             },
             {
-                id: 2,
+                id: 4,
                 name: 'Hoodie 2',
                 price: 25,
             },
