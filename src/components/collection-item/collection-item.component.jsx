@@ -10,7 +10,7 @@ const CollectionItem = ({ item, addItem }) => {
     return (
         <div>
             <span>{name}</span>
-            <span>- {price}$</span>
+            <span> - {price}$</span>
             <Button onClick={() => addItem(item)}>Add to cart</Button>
         </div>
     );

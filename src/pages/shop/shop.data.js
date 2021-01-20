@@ -5,12 +5,12 @@ const DATA = [
         items: [
             {
                 id: 1,
-                name: 'T-shirt 1',
+                name: 'T-shirt MZCH',
                 price: 25,
             },
             {
                 id: 2,
-                name: 'T-shirt 2',
+                name: 'T-shirt NUN',
                 price: 20,
             },
         ],
@@ -20,13 +20,13 @@ const DATA = [
         title: 'Hoodies',
         items: [
             {
-                id: 1,
-                name: 'Hoodie 1',
+                id: 3,
+                name: 'Hoodie MZCH',
                 price: 30,
             },
             {
-                id: 2,
-                name: 'Hoodie 2',
+                id: 4,
+                name: 'Hoodie NUN',
                 price: 25,
             },
         ],
