@@ -17,8 +17,6 @@ const Header = ({ currentUser, hidden }) => (
                 (
                     <span>
                         <Link to="#" onClick={() => auth.signOut()}>|Sign out</Link>
-                        <CartIcon />
-                        {hidden ? null :<CartDropdown />}
                     </span>
                 ) :
                 <span>
@@ -26,10 +24,12 @@ const Header = ({ currentUser, hidden }) => (
                     |<Link to="/sign-up">Sing up</Link>
                 </span>
         }
+        <CartIcon />
+        {hidden ? null : <CartDropdown />}
     </div>
 );
 
-const mapStateToProps = ({user: {currentUser}, cart: {hidden}}) => ({
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
     currentUser: currentUser,
     hidden: hidden,
 });
