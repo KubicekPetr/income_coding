@@ -9,7 +9,7 @@ import { toggleCartHidden } from '../../redux/cart/cart.actions';
 import Button from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
 
-const CartDropdown = ({ cartItems, toggleCartHidden, history }) => (
+const CartDropdown = ({ cartItems, dispatch, history }) => (
     <div>
         {
             cartItems.length 
@@ -17,7 +17,7 @@ const CartDropdown = ({ cartItems, toggleCartHidden, history }) => (
             <div>Your cart is empty</div>
         }
         <Button onClick={() => {
-            toggleCartHidden();
+            dispatch(toggleCartHidden());
             history.push('/checkout');
         }}>Go to checkout</Button>
     </div>
@@ -27,8 +27,4 @@ const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems
 });
 
-const mapDispatchToProps = dispatch => ({
-    toggleCartHidden: () => dispatch(toggleCartHidden()),
-});
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CartDropdown));
+export default withRouter(connect(mapStateToProps)(CartDropdown));
