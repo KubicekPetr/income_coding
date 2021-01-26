@@ -1,12 +1,19 @@
 import React from 'react';
 
-const CheckoutItem = ({ item: { name, quantity, price } }) => (
-    <tr>
-        <td>{name}</td>
-        <td>{quantity}</td>
-        <td>{price}$</td>
-        <td>&#10005;</td>
-    </tr>
-);
+import { connect } from 'react-redux';
 
-export default CheckoutItem;
+import { removeItem } from '../../redux/cart/cart.actions';
+
+const CheckoutItem = ({ item, dispatch }) => {
+    const { name, quantity, price } = item;
+    return (
+        <tr>
+            <td>{name}</td>
+            <td>{quantity}</td>
+            <td>{price}$</td>
+            <td onClick={() => dispatch(removeItem(item))}>&#10005;</td>
+        </tr>
+    );
+};
+
+export default connect()(CheckoutItem);
