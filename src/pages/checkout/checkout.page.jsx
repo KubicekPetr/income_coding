@@ -10,14 +10,20 @@ import CheckoutItem from '../../components/checkout-item/checkout-item.component
 const Checkout = ({ cartItems, total }) => (
     <div>
         <h1>Cart checkout</h1>
-        <table style={{borderSpacing: '10px', textAlign: 'center'}}>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Remove</th>
-            {cartItems.map(item => (
-                <CheckoutItem key={item.id} item={item} />
-            ))}
+        <table style={{ borderSpacing: '10px', textAlign: 'center' }}>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                {cartItems.map(item => (
+                    <CheckoutItem key={item.id} item={item} />
+                ))}
+            </tbody>
         </table>
         <h4><br />Total: {total}$</h4>
     </div>
