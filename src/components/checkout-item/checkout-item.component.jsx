@@ -2,18 +2,28 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { removeItem } from '../../redux/cart/cart.actions';
+import { addItem, removeItem, removeItemSet } from '../../redux/cart/cart.actions';
 
-const CheckoutItem = ({ item, dispatch }) => {
+const CheckoutItem = ({ item, addItem, removeItem, removeItemSet }) => {
     const { name, quantity, price } = item;
     return (
         <tr>
             <td>{name}</td>
-            <td>{quantity}</td>
+            <td>
+                <span onClick={() => removeItem(item)}>&#10094;&#0009;</span>
+                {quantity}
+                <span onClick={() => addItem(item)}>&#0009;&#10095;</span>
+            </td>
             <td>{price}$</td>
-            <td onClick={() => dispatch(removeItem(item))}>&#10005;</td>
+            <td onClick={() => removeItemSet(item)}>&#10005;</td>
         </tr>
     );
 };
 
-export default connect()(CheckoutItem);
+const mapDispatchToProps = dispatch => ({
+    addItem: item => dispatch(addItem(item)),
+    removeItem: item => dispatch(removeItem(item)),
+    removeItemSet: item => dispatch(removeItemSet(item)),
+});
+
+export default connect(null, mapDispatchToProps)(CheckoutItem);
