@@ -10,6 +10,11 @@ const INITIAL_STATE ={
             title: 'Hoodies',
             linkUrl: 'hoodies'
         },
+        {
+            id: 3,
+            title: 'Boots',
+            linkUrl: 'boots'
+        },
     ],
 };
 

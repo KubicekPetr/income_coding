@@ -31,6 +31,22 @@ const DATA = [
             },
         ],
     },
+    {
+        id: 3,
+        title: 'Boots',
+        items: [
+            {
+                id: 5,
+                name: 'Boots MZCH',
+                price: 59,
+            },
+            {
+                id: 6,
+                name: 'Boots NUN',
+                price: 44,
+            },
+        ],
+    },
 ];
 
 export default DATA;
