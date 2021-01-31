@@ -1,3 +1,8 @@
+/* all states are somehow stored in local storage
+ and only cart state shloud be,,
+ this has to be fix or the storage has to 
+ be cleared to invovle changes in shop data state */
+
 const DATA = [
     {
         id: 1,
