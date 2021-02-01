@@ -1,19 +1,24 @@
+/* all states are somehow stored in local storage
+ and only cart state shloud be,,
+ this has to be fix or the storage has to 
+ be cleared to invovle changes in shop data state */
+
 const INITIAL_STATE ={
     sections: [
         {
             id: 1,
             title: 'T-shirts',
-            linkUrl: 'tshirts',
+            linkUrl: 'shop/tshirts',
         },
         {
             id: 2,
             title: 'Hoodies',
-            linkUrl: 'hoodies'
+            linkUrl: 'shop/hoodies'
         },
         {
             id: 3,
             title: 'Boots',
-            linkUrl: 'boots'
+            linkUrl: 'shop/boots'
         },
     ],
 };

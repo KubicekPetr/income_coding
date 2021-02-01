@@ -3,8 +3,8 @@
  this has to be fix or the storage has to 
  be cleared to invovle changes in shop data state */
 
-const DATA = [
-    {
+const DATA = {
+    tshirts: {
         id: 1,
         title: 'T-shirts',
         items: [
@@ -20,7 +20,7 @@ const DATA = [
             },
         ],
     },
-    {
+    hoodies: {
         id: 2,
         title: 'Hoodies',
         items: [
@@ -36,7 +36,7 @@ const DATA = [
             },
         ],
     },
-    {
+    boots: {
         id: 3,
         title: 'Boots',
         items: [
@@ -52,6 +52,6 @@ const DATA = [
             },
         ],
     },
-];
+};
 
 export default DATA;
