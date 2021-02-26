@@ -18,8 +18,6 @@ class Shop extends React.Component {
         loading: true,
     };
 
-    unsubscribeFromSnaphost = null;
-
     componentDidMount() {
         const { updateCollections } = this.props;
         const collectionRef = firestore.collection('collections');
@@ -29,10 +27,6 @@ class Shop extends React.Component {
             updateCollections(collectionsMap);
             this.setState({ loading: false });
         });
-    }
-
-    componentWillUnmount() {
-        this.unsubscribeFromSnaphost();
     }
 
     render() {
