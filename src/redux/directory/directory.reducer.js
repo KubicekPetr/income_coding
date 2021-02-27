@@ -8,7 +8,7 @@ const INITIAL_STATE ={
         {
             id: 1,
             title: 'T-shirts',
-            linkUrl: 'shop/tshirts',
+            linkUrl: 'shop/t-shirts',
         },
         {
             id: 2,
