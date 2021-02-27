@@ -1,7 +1,8 @@
 /* all states are somehow stored in local storage
  and only cart state shloud be,,
  this has to be fix or the storage has to 
- be cleared to invovle changes in shop data state */
+ be cleared to invovle changes in shop data state 
+ - this is not true since I stoped using redux persists for now */
 
 const INITIAL_STATE ={
     sections: [
