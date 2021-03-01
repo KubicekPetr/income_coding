@@ -22,16 +22,12 @@ const SignIn = () => {
             console.error(e);
             e.code === 'auth/user-not-found' ?
                 setWarning({
-                    warning: {
-                        active: true,
-                        message: 'The password is invalid or the user does not have a password.',
-                    },
+                    active: true,
+                    message: 'The password is invalid or the user does not have a password.',
                 }) :
                 setWarning({
-                    warning: {
-                        active: true,
-                        message: e.message,
-                    },
+                    active: true,
+                    message: e.message,
                 });
         }
 
