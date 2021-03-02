@@ -35,6 +35,8 @@ const App = ({ setCurrentUser, currentUser }) => {
         setCurrentUser(userAuth);
       }
     });
+    // this simulated componentWillUnmount but after unmnout
+    return () => unsubscribeFromAuth();
   }, []);
 
   return (
