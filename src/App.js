@@ -35,6 +35,7 @@ const App = ({ setCurrentUser, currentUser }) => {
     });
     // this simulated componentWillUnmount but after unmnout
     return () => unsubscribeFromAuth();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
