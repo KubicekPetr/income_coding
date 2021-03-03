@@ -18,8 +18,6 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.acitons';
 
 const App = ({ setCurrentUser, currentUser }) => {
-  const unsubscribeFromAuth = null;
-
   useEffect(() => {
     const unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -35,7 +33,9 @@ const App = ({ setCurrentUser, currentUser }) => {
         setCurrentUser(userAuth);
       }
     });
-  }, []);
+    // this simulated componentWillUnmount but after unmnout
+    return () => unsubscribeFromAuth();
+  }, [setCurrentUser]);
 
   return (
     <div>
